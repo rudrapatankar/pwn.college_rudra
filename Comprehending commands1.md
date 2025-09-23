@@ -19,4 +19,4 @@ pwn.college{MQckuHfgBKizDU-czW6TRTyBkx0.QXxcTN0wiNxIzNzEzW}
 cat functions to read files mentioned in the arguments from the home directory. It concats all files in the arguments if more than one mentioned
 
 ### References 
-Add any references or videos you used while solving the challenge.
+N.A.
