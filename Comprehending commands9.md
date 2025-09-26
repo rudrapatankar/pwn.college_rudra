@@ -34,7 +34,7 @@ To move a file to a certain address do mv filename address
 
 
 ```bash
-rm delete_me
+mv  /flag /tmp/hack-the-planet
 /challenge/check
 pwn.college{cS0F6nUY_QfaD6a15yn_Bdnu7wa.0VOxEzNxwiNxIzNzEzW}
 ```
