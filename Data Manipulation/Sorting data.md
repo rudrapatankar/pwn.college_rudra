@@ -1,0 +1,252 @@
+# Data Manipulation
+
+## Sorting Data
+
+Files (or output lines of commands) aren't always in the order you need them! The sort command helps you organize data. It reads lines from input (or files) and outputs them in sorted order:
+
+hacker@dojo:~$ cat names.txt
+  hack
+  the
+  planet
+  with
+  pwn
+  college
+hacker@dojo:~$ sort names.txt
+  college
+  hack
+  planet
+  pwn
+  the
+  with
+hacker@dojo:~$
+By default, sort orders lines alphabetically. Arguments can change this:
+
+-r: reverse order (Z to A)
+-n: numeric sort (for numbers)
+-u: unique lines only (remove duplicates)
+-R: random order!
+In this challenge, there's a file at /challenge/flags.txt containing 100 fake flags, with the real flag mixed among them. When sorted alphabetically, the real flag will be at the end (we made sure of this when generating fake flags). Go get it!
+
+### Solve
+**Flag:** pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+
+sorting the elements of /challenge/flags.txt arranges all fake and one real flag in ascending order such that real flag is at the last of list.
+
+```bash
+hacker@data~sorting-data:~$ sort /challenge/flags.txt
+ovm.cnkldge{gdDsA8cOpvoZimEW6nwdkUnlzQm.0FM0MDOxwhMwIzNzDzW}
+ovm.cnllege{gcCtA9cPqwpZilDW7nwclUnkyRm.0FL0LCOxvhMxHzNyEzW}
+ovm.colkege{gdDtA8cOqvpZilEW7mwclTnlzRl.0EL0MDOwviNxHzMzEzV}
+ovm.collegd{gcDtB9cOqwpZhlEW6mwckUnlzRl.0FL0MDOwwiMxIzNyDzW}
+ovm.college{gcDtB9cPpwpZhmEW7nwdlUnkzRm.0FM0MDOxwiNxIzNzEzW}
+ovn.bolldge{gdDtA8cPpwoZhlEV7mvdlTmlyRm.0EL0MDOwwhMxIzNzDzW}
+ovn.coklege{fdCtB9bOpvpZimEV7nvdlUmlyRl.0EL0MCNxwhMwHzNzEzV}
+ovn.colkege{gdDtB9cOqwpZhlEV7nvdlUnlyRm.0FM0LDOxwiNxIzNzEzW}
+ovn.colldge{gdCtA8bPpvoZimEW6nvdlUnlyRm.0FM0MDOwwiNxIzNzEzW}
+ovn.collefd{fdDtA8bOpwpZhmEV6nvdlUnkzQl.0FL0MDOxviMxIzMyEzW}
+ovn.collefe{gcDtB9cOpvpZilEW6mwdlUmlyRm.0FM0LDOxwiNxIyNzEzW}
+ovn.collegd{gdDtB8cPqvoZhmDW7nvdkTnlzQm.0FM0MDOxwiNxIyNyEzW}
+ovn.college{gdCtB9cPqwoZimEW7mwdlTnlzRm.0FL0MDOwviMwIyNzEyW}
+owm.cnlkdgd{fdCsA9cOqwoZhmEV7nwckUnlzRm.0FM0MDOxwiNwIyNzEzW}
+owm.cnlkdgd{gdCsA9cPqwpZilEV7mvdlTnlyRm.0FL0LDOxwhNwIzNzEzV}
+owm.cnllegd{gdDsB9bOqwpZimEW6mwclUnlzQl.0FL0LDOxviMxIzNzDyV}
+owm.colkege{gdDtB9cOqwpZimEW7nwdlUnlzRm.0FM0MDOwviNxIzNyEzW}
+own.bolldgd{gdDtA9cPqwpZhmDV7mwdlUmkzRl.0EM0MCOwwiNxIyNzEyW}
+own.bollege{gcDsB9cPqvpYimEW6nwdlUnlzRm.0FM0MDOwviMxIyNyEzW}
+own.cnkkefe{gdDsA9bPqwoZimEW7mvclUnlzRl.0FL0MDOwwiMxIyMzEyV}
+own.cnllefe{gdDsB9cOqwpZimEV7mvclTmlyRl.0FL0LDOxwiMwIyNyDzV}
+own.cnllegd{gcCsB9bPpwpYilDW7nwdkUmkzQm.0FM0MDOxwiNwIzNzEyW}
+own.colkegd{gdDsB8cPpwoZimDW7nvclUnlzRm.0FM0MDOxwiNxIyNzEzW}
+own.colkege{gcDsB9bPpvpZilEW7nvdkUmlzQm.0FM0LCOwvhNxIyNzEzV}
+own.collegd{gdDtA9cOqwpZilEW7nwdlUmlzRl.0FM0MDOxwiNwIzNzEzV}
+own.college{gcDtA9bPpvpYilEW7mvdkUmkyQm.0FM0LCOxviNxIzNzDzW}
+pvm.cnllege{gdDsB9bPqvpZimDW6nwdlTnlzRl.0FM0LDOxwiNxIzNzEzW}
+pvm.colkdgd{gcCtB9bPqvoZilDW7nvckUnlzQl.0FM0MDOwwiMwIzMzEzV}
+pvm.college{gdDtB9cPqvoZhmEW7mwdlUnlzRm.0FM0MCOwwiMwHzMzEzW}
+pvn.bnlkefd{gdDtA8cPpvoZimDW6mwdlUmkzRl.0FM0MCOwviMxIzMzEzW}
+pvn.bnlldge{fcDtB9bOpwpZimEV7nwdkUmkzQl.0FM0MCOxwiNxIzNzEzV}
+pvn.bnllegd{gdDsB9cPqwpZhmEW7mvdkUmlzRm.0FM0MDOxwiNxHzMzDyW}
+pvn.bollege{gdDtB9cPqwpZhlDW6mwdkTmlyQm.0FM0LDNxwhMxHzNzDyW}
+pvn.cnkkdgd{fdDtA9cOqvpYhmDV6nvckUnkzRm.0EM0MDNwwiMxIzMzEzW}
+pvn.cokldfd{gdDtA9cOpwpZimEV7nvdlUnlzRl.0FM0MCOwwiMxIyNzDzW}
+pvn.coklefe{fdDtB9cOqvpZimEW6nwdlTnlyRl.0EM0MDOxviMxIzNzEyV}
+pvn.colkdfe{gcDtB9cPqvoZhmEW6mvclUnlzQm.0EM0MDOxwhNwHzMzEzW}
+pvn.colkegd{gdDtB8cOqwpZimDV7nwclUnlzRl.0FM0MDOxwhNwIzNzEzW}
+pvn.collegd{gdDtB9cPqwpZimDW6nvclUnlzQm.0FM0MDOxwiNwIzNzDzW}
+pvn.college{gdDtB9cPqwpZimDW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwm.bnlkdgd{gcCsA9cPqwpYilEW7nvdlUnkzQl.0EM0MCOxwiMwIzNyDzW}
+pwm.bnllege{gcDtB9cPqwoZimEW7mwclTnkzRm.0FM0MCOxwhNxIzMyDzW}
+pwm.cnlkege{fcDsB9cOqwpZhmEW6mwdlTmlzRl.0FM0LDOxviMwIyMzDyV}
+pwm.cnllegd{gdDtB8cPqwpZimEW7nwdlUnlzQm.0FM0MDOxwiNxIzNzEyW}
+pwm.cnllege{gcCtB9cPqwpZimDW7mvdlUmkzRl.0EM0MCNwwiNwIzMzEyV}
+pwm.cokkefe{fcDtB8cPqwpYilEW7mvckTmlyRm.0FM0LCNxvhNxIyNzDzW}
+pwm.cokkege{gdDtB9bOpwpZimEW6mwdlUmlzQl.0FM0MCOxwiNwIyNyDzV}
+pwm.colkegd{gcCsB9bPqvoZimDW6nwclUmlzQm.0EL0MDOxwiMxHzNzDzV}
+pwm.colkege{gdDtB9cPpwpZimEW7nwdlUnlzQl.0FM0MDNxviNxIzNzEzW}
+pwn.bnllegd{gdCtB9cPqwpZimDW7nvdlUnkzRm.0FM0MCOxvhNxHzNzEzV}
+pwn.bnllege{gdCtB9cPqvpZhlEW7nwdlUnkzRm.0FM0MDOwwiNxIzMyEzW}
+pwn.bnllege{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxHzNzDzW}
+pwn.boklege{gdDtB8bOqwoZimEW6mwdlUnlzRm.0EL0MDNwwiNwHzNyDzW}
+pwn.bolkefe{fcCsB8cPqvpZhmDV6nvdkUnlyRm.0FL0MCOxwiNxHzMzEzW}
+pwn.bolldge{fdDtB9cPqwpZimEW7nwclTnlzRm.0FM0MDOxwiNxIzMzEzW}
+pwn.bollefe{fdDtA9cPqwpYimEW6nwdlTmkzRl.0FM0MCNwwiNwIzNzEzW}
+pwn.bollegd{gdDsB8cPpwpZilEW7nvdlUnlzRm.0FL0MDOxwhNxIzNzEzW}
+pwn.bollegd{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIyNzEzW}
+pwn.bollege{fdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.bollege{gdDsB9cPqwoZhmEW7nwdlUnlzRm.0FM0MDOwwiNxIzNzEzW}
+pwn.cnlkdge{gdDtA8bPpwoZilDW7nwdkTnlzQm.0FL0LDNxwiNwHzMzEzV}
+pwn.cnllefd{fcDtA8bPpvpZhlEW6mvdlUnlyRl.0EM0MDOxwhNwIyMzEzW}
+pwn.cokkdge{gdDtB9cPpwpYhlDV7nwdkUmlzQm.0FM0MCOxwiNxIzNzEzV}
+pwn.cokkege{gdDsB9cPpwoZimDW7nwdkUmkyRm.0FM0MDOxvhNxHyNzDzW}
+pwn.coklege{gcCtB9bOqvpZhmDW7nwclUnlzQm.0FM0LCOwvhNxIzMyEzV}
+pwn.colkdgd{gcDtB9cPqvpZimDW7nwclTnlzRm.0FM0MDOxwhNwHyMzEzW}
+pwn.colkdge{fdDtB9bOqwpZilEW7nvckUmkyRl.0FM0MDNxviNwIzNzDyV}
+pwn.colkegd{gcDtB9cPqwoYimEW7nwdlUnlzRm.0EM0MDOxwiNxIzNzEyW}
+pwn.colkege{gcDtB9cOqwpZimDW7nwdlUnlyQl.0FM0LDOxwhNxHzNzEzW}
+pwn.colkege{gdDtA8cOqwpZimEW7nwdkUnlyRm.0FM0MDOxviNxIzNzEzW}
+pwn.colldfd{fdDtA9cOpvoZilEW7nwdlUmkzRm.0FM0LCNxviMwIzNzEzW}
+pwn.colldfe{gdCtB9cOqwoYimDV6nvclUnlzQm.0EL0LDNxwiNwIzNzEzW}
+pwn.collefd{gdDsB9cPqwpZimEW7nwdkTnkzQm.0EM0LDOxwhNxHzMzEyW}
+pwn.collefd{gdDtB9cPpwpZimEW7nwclUnlzRm.0FM0MDOxviNxIzMzEzW}
+pwn.collefe{fcDsA9cPqvoZhmEV7mwclUnlyRm.0FL0MDOwwiMwIzMzEzW}
+pwn.collefe{fdDsA9cPqwpZimEV7nvdlUmkzRm.0FL0MDOxwiNxHzNzEzW}
+pwn.collefe{gcDtA9bOpvpZimEW7nwdlUnkyRm.0FM0LDOxwhMxIzNzDzW}
+pwn.collegd{fdDsB8cPqwpZimEW7nwdlUnkzRm.0EM0LDNxwhMxIzNzDzW}
+pwn.collegd{gdCtB9cPqvpZimDV7nwdlTnlzQm.0FM0MDOxwiMwIzNzDyW}
+pwn.collegd{gdDsB9cPpwpZhmDW6nvclUnlyQm.0FM0MDNxvhNxIyNzEzW}
+pwn.collegd{gdDsB9cPqwoYhmEV7nwdlUmlzRl.0FM0LDOxvhMxIzNzEzW}
+pwn.collegd{gdDtB8cPqwpZimEW7nvdlUmlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.collegd{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxHzNzEzW}
+pwn.college{fdDtB9cOqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzDzW}
+pwn.college{fdDtB9cPpwoZimEW7nwdlUnlzRl.0EM0MDOwwiNxIzNzEzV}
+pwn.college{gcDtB9cPqwpZhmEW7nwdlUnlyRm.0EM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB8cOqwpZimEW7nwdlUmlzRm.0FM0MDOxwiMxIzNzEzW}
+pwn.college{gdDtB8cPqwpYimEW7nwdlUnkzRm.0FM0LDNxwiNxIzNzEyV}
+pwn.college{gdDtB9bPqwpYhmEW6nwdkUnlzRm.0EM0MDOxvhNxIzMzDyW}
+pwn.college{gdDtB9cOqwpZilEV7mwclUmlzRm.0EM0MDOxvhNxIzNzDyW}
+pwn.college{gdDtB9cPqwpYimEW7nwdlUnlzRl.0FM0MDOxwiNxHzNzEzW}
+pwn.college{gdDtB9cPqwpZilDW6nwdlUnlyRm.0EM0MDOwwiNxHzNyEyW}
+pwn.college{gdDtB9cPqwpZimDW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW6nwdlUnlzRm.0FM0MDOxwiNxIzMzEzW}
+pwn.college{gdDtB9cPqwpZimEW6nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlTnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnkzRm.0FM0MDOxwiNxIzNzDzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNyEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+hacker@data~sorting-data:~$ sort /challenge/flags.txt
+ovm.cnkldge{gdDsA8cOpvoZimEW6nwdkUnlzQm.0FM0MDOxwhMwIzNzDzW}
+ovm.cnllege{gcCtA9cPqwpZilDW7nwclUnkyRm.0FL0LCOxvhMxHzNyEzW}
+ovm.colkege{gdDtA8cOqvpZilEW7mwclTnlzRl.0EL0MDOwviNxHzMzEzV}
+ovm.collegd{gcDtB9cOqwpZhlEW6mwckUnlzRl.0FL0MDOwwiMxIzNyDzW}
+ovm.college{gcDtB9cPpwpZhmEW7nwdlUnkzRm.0FM0MDOxwiNxIzNzEzW}
+ovn.bolldge{gdDtA8cPpwoZhlEV7mvdlTmlyRm.0EL0MDOwwhMxIzNzDzW}
+ovn.coklege{fdCtB9bOpvpZimEV7nvdlUmlyRl.0EL0MCNxwhMwHzNzEzV}
+ovn.colkege{gdDtB9cOqwpZhlEV7nvdlUnlyRm.0FM0LDOxwiNxIzNzEzW}
+ovn.colldge{gdCtA8bPpvoZimEW6nvdlUnlyRm.0FM0MDOwwiNxIzNzEzW}
+ovn.collefd{fdDtA8bOpwpZhmEV6nvdlUnkzQl.0FL0MDOxviMxIzMyEzW}
+ovn.collefe{gcDtB9cOpvpZilEW6mwdlUmlyRm.0FM0LDOxwiNxIyNzEzW}
+ovn.collegd{gdDtB8cPqvoZhmDW7nvdkTnlzQm.0FM0MDOxwiNxIyNyEzW}
+ovn.college{gdCtB9cPqwoZimEW7mwdlTnlzRm.0FL0MDOwviMwIyNzEyW}
+owm.cnlkdgd{fdCsA9cOqwoZhmEV7nwckUnlzRm.0FM0MDOxwiNwIyNzEzW}
+owm.cnlkdgd{gdCsA9cPqwpZilEV7mvdlTnlyRm.0FL0LDOxwhNwIzNzEzV}
+owm.cnllegd{gdDsB9bOqwpZimEW6mwclUnlzQl.0FL0LDOxviMxIzNzDyV}
+owm.colkege{gdDtB9cOqwpZimEW7nwdlUnlzRm.0FM0MDOwviNxIzNyEzW}
+own.bolldgd{gdDtA9cPqwpZhmDV7mwdlUmkzRl.0EM0MCOwwiNxIyNzEyW}
+own.bollege{gcDsB9cPqvpYimEW6nwdlUnlzRm.0FM0MDOwviMxIyNyEzW}
+own.cnkkefe{gdDsA9bPqwoZimEW7mvclUnlzRl.0FL0MDOwwiMxIyMzEyV}
+own.cnllefe{gdDsB9cOqwpZimEV7mvclTmlyRl.0FL0LDOxwiMwIyNyDzV}
+own.cnllegd{gcCsB9bPpwpYilDW7nwdkUmkzQm.0FM0MDOxwiNwIzNzEyW}
+own.colkegd{gdDsB8cPpwoZimDW7nvclUnlzRm.0FM0MDOxwiNxIyNzEzW}
+own.colkege{gcDsB9bPpvpZilEW7nvdkUmlzQm.0FM0LCOwvhNxIyNzEzV}
+own.collegd{gdDtA9cOqwpZilEW7nwdlUmlzRl.0FM0MDOxwiNwIzNzEzV}
+own.college{gcDtA9bPpvpYilEW7mvdkUmkyQm.0FM0LCOxviNxIzNzDzW}
+pvm.cnllege{gdDsB9bPqvpZimDW6nwdlTnlzRl.0FM0LDOxwiNxIzNzEzW}
+pvm.colkdgd{gcCtB9bPqvoZilDW7nvckUnlzQl.0FM0MDOwwiMwIzMzEzV}
+pvm.college{gdDtB9cPqvoZhmEW7mwdlUnlzRm.0FM0MCOwwiMwHzMzEzW}
+pvn.bnlkefd{gdDtA8cPpvoZimDW6mwdlUmkzRl.0FM0MCOwviMxIzMzEzW}
+pvn.bnlldge{fcDtB9bOpwpZimEV7nwdkUmkzQl.0FM0MCOxwiNxIzNzEzV}
+pvn.bnllegd{gdDsB9cPqwpZhmEW7mvdkUmlzRm.0FM0MDOxwiNxHzMzDyW}
+pvn.bollege{gdDtB9cPqwpZhlDW6mwdkTmlyQm.0FM0LDNxwhMxHzNzDyW}
+pvn.cnkkdgd{fdDtA9cOqvpYhmDV6nvckUnkzRm.0EM0MDNwwiMxIzMzEzW}
+pvn.cokldfd{gdDtA9cOpwpZimEV7nvdlUnlzRl.0FM0MCOwwiMxIyNzDzW}
+pvn.coklefe{fdDtB9cOqvpZimEW6nwdlTnlyRl.0EM0MDOxviMxIzNzEyV}
+pvn.colkdfe{gcDtB9cPqvoZhmEW6mvclUnlzQm.0EM0MDOxwhNwHzMzEzW}
+pvn.colkegd{gdDtB8cOqwpZimDV7nwclUnlzRl.0FM0MDOxwhNwIzNzEzW}
+pvn.collegd{gdDtB9cPqwpZimDW6nvclUnlzQm.0FM0MDOxwiNwIzNzDzW}
+pvn.college{gdDtB9cPqwpZimDW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwm.bnlkdgd{gcCsA9cPqwpYilEW7nvdlUnkzQl.0EM0MCOxwiMwIzNyDzW}
+pwm.bnllege{gcDtB9cPqwoZimEW7mwclTnkzRm.0FM0MCOxwhNxIzMyDzW}
+pwm.cnlkege{fcDsB9cOqwpZhmEW6mwdlTmlzRl.0FM0LDOxviMwIyMzDyV}
+pwm.cnllegd{gdDtB8cPqwpZimEW7nwdlUnlzQm.0FM0MDOxwiNxIzNzEyW}
+pwm.cnllege{gcCtB9cPqwpZimDW7mvdlUmkzRl.0EM0MCNwwiNwIzMzEyV}
+pwm.cokkefe{fcDtB8cPqwpYilEW7mvckTmlyRm.0FM0LCNxvhNxIyNzDzW}
+pwm.cokkege{gdDtB9bOpwpZimEW6mwdlUmlzQl.0FM0MCOxwiNwIyNyDzV}
+pwm.colkegd{gcCsB9bPqvoZimDW6nwclUmlzQm.0EL0MDOxwiMxHzNzDzV}
+pwm.colkege{gdDtB9cPpwpZimEW7nwdlUnlzQl.0FM0MDNxviNxIzNzEzW}
+pwn.bnllegd{gdCtB9cPqwpZimDW7nvdlUnkzRm.0FM0MCOxvhNxHzNzEzV}
+pwn.bnllege{gdCtB9cPqvpZhlEW7nwdlUnkzRm.0FM0MDOwwiNxIzMyEzW}
+pwn.bnllege{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxHzNzDzW}
+pwn.boklege{gdDtB8bOqwoZimEW6mwdlUnlzRm.0EL0MDNwwiNwHzNyDzW}
+pwn.bolkefe{fcCsB8cPqvpZhmDV6nvdkUnlyRm.0FL0MCOxwiNxHzMzEzW}
+pwn.bolldge{fdDtB9cPqwpZimEW7nwclTnlzRm.0FM0MDOxwiNxIzMzEzW}
+pwn.bollefe{fdDtA9cPqwpYimEW6nwdlTmkzRl.0FM0MCNwwiNwIzNzEzW}
+pwn.bollegd{gdDsB8cPpwpZilEW7nvdlUnlzRm.0FL0MDOxwhNxIzNzEzW}
+pwn.bollegd{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIyNzEzW}
+pwn.bollege{fdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.bollege{gdDsB9cPqwoZhmEW7nwdlUnlzRm.0FM0MDOwwiNxIzNzEzW}
+pwn.cnlkdge{gdDtA8bPpwoZilDW7nwdkTnlzQm.0FL0LDNxwiNwHzMzEzV}
+pwn.cnllefd{fcDtA8bPpvpZhlEW6mvdlUnlyRl.0EM0MDOxwhNwIyMzEzW}
+pwn.cokkdge{gdDtB9cPpwpYhlDV7nwdkUmlzQm.0FM0MCOxwiNxIzNzEzV}
+pwn.cokkege{gdDsB9cPpwoZimDW7nwdkUmkyRm.0FM0MDOxvhNxHyNzDzW}
+pwn.coklege{gcCtB9bOqvpZhmDW7nwclUnlzQm.0FM0LCOwvhNxIzMyEzV}
+pwn.colkdgd{gcDtB9cPqvpZimDW7nwclTnlzRm.0FM0MDOxwhNwHyMzEzW}
+pwn.colkdge{fdDtB9bOqwpZilEW7nvckUmkyRl.0FM0MDNxviNwIzNzDyV}
+pwn.colkegd{gcDtB9cPqwoYimEW7nwdlUnlzRm.0EM0MDOxwiNxIzNzEyW}
+pwn.colkege{gcDtB9cOqwpZimDW7nwdlUnlyQl.0FM0LDOxwhNxHzNzEzW}
+pwn.colkege{gdDtA8cOqwpZimEW7nwdkUnlyRm.0FM0MDOxviNxIzNzEzW}
+pwn.colldfd{fdDtA9cOpvoZilEW7nwdlUmkzRm.0FM0LCNxviMwIzNzEzW}
+pwn.colldfe{gdCtB9cOqwoYimDV6nvclUnlzQm.0EL0LDNxwiNwIzNzEzW}
+pwn.collefd{gdDsB9cPqwpZimEW7nwdkTnkzQm.0EM0LDOxwhNxHzMzEyW}
+pwn.collefd{gdDtB9cPpwpZimEW7nwclUnlzRm.0FM0MDOxviNxIzMzEzW}
+pwn.collefe{fcDsA9cPqvoZhmEV7mwclUnlyRm.0FL0MDOwwiMwIzMzEzW}
+pwn.collefe{fdDsA9cPqwpZimEV7nvdlUmkzRm.0FL0MDOxwiNxHzNzEzW}
+pwn.collefe{gcDtA9bOpvpZimEW7nwdlUnkyRm.0FM0LDOxwhMxIzNzDzW}
+pwn.collegd{fdDsB8cPqwpZimEW7nwdlUnkzRm.0EM0LDNxwhMxIzNzDzW}
+pwn.collegd{gdCtB9cPqvpZimDV7nwdlTnlzQm.0FM0MDOxwiMwIzNzDyW}
+pwn.collegd{gdDsB9cPpwpZhmDW6nvclUnlyQm.0FM0MDNxvhNxIyNzEzW}
+pwn.collegd{gdDsB9cPqwoYhmEV7nwdlUmlzRl.0FM0LDOxvhMxIzNzEzW}
+pwn.collegd{gdDtB8cPqwpZimEW7nvdlUmlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.collegd{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxHzNzEzW}
+pwn.college{fdDtB9cOqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzDzW}
+pwn.college{fdDtB9cPpwoZimEW7nwdlUnlzRl.0EM0MDOwwiNxIzNzEzV}
+pwn.college{gcDtB9cPqwpZhmEW7nwdlUnlyRm.0EM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB8cOqwpZimEW7nwdlUmlzRm.0FM0MDOxwiMxIzNzEzW}
+pwn.college{gdDtB8cPqwpYimEW7nwdlUnkzRm.0FM0LDNxwiNxIzNzEyV}
+pwn.college{gdDtB9bPqwpYhmEW6nwdkUnlzRm.0EM0MDOxvhNxIzMzDyW}
+pwn.college{gdDtB9cOqwpZilEV7mwclUmlzRm.0EM0MDOxvhNxIzNzDyW}
+pwn.college{gdDtB9cPqwpYimEW7nwdlUnlzRl.0FM0MDOxwiNxHzNzEzW}
+pwn.college{gdDtB9cPqwpZilDW6nwdlUnlyRm.0EM0MDOwwiNxHzNyEyW}
+pwn.college{gdDtB9cPqwpZimDW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW6nwdlUnlzRm.0FM0MDOxwiNxIzMzEzW}
+pwn.college{gdDtB9cPqwpZimEW6nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlTnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnkzRm.0FM0MDOxwiNxIzNzDzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNyEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+
+pwn.college{gdDtB9cPqwpZimEW7nwdlUnlzRm.0FM0MDOxwiNxIzNzEzW}
+
+```
+
+### New Learnings
+sorting the elements of /challenge/flags.txt arranges all fake and one real flag in ascending order such that real flag is at the last of list.
+
+
+### References 
+N.A.
