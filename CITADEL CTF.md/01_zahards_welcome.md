@@ -1,7 +1,5 @@
 ## Zahard's Welcome
 
-**Author**: Cryptonite
-
 **Category**: Misc
 
 **Difficulty**: Easy
