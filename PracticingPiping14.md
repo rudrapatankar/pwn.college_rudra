@@ -47,6 +47,7 @@ Using fifo to store output of /challenge/run, we need to use 2 terminals one to 
 
 
 Terminal 1 : 
+```bash
 hacker@piping~named-pipes:~$ mkfifo /tmp/flag_fifo
 hacker@piping~named-pipes:~$ /challenge/run > /tmp/flag_fifo
 You're successfully redirecting /challenge/run to a FIFO at /tmp/flag_fifo!
@@ -54,7 +55,7 @@ Bash will now try to open the FIFO for writing, to pass it as the stdout of
 /challenge/run. Recall that operations on FIFOs will *block* until both the
 read side and the write side is open, so /challenge/run will not actually be
 launched until you start reading from the FIFO!
-
+```
 Terminal 2 
 ```bash
 hacker@piping~named-pipes:~$ cat /tmp/flag_fifo
